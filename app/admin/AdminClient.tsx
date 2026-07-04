@@ -223,6 +223,11 @@ export default function AdminClient() {
 
   const orderCounts  = ORDER_STATUS.reduce((a, s) => ({ ...a, [s.value]: orders.filter(o => o.status === s.value).length }), {} as Record<string, number>)
   const unreadCount  = contacts.filter(c => c.status === 'unread').length
+  
+  const loadAllData = async () => {
+    await fetchOrders();
+    await fetchContacts();
+  };
 
   return (
     <div style={{ minHeight: '100vh', padding: '80px 0 80px' }}>

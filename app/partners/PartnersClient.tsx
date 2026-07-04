@@ -160,21 +160,28 @@ export default function PartnersClient() {
 
           {/* Spec filter */}
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 48 }}>
-            {SPECS.map(spec => (
-              <button
-                key={spec}
-                onClick={() => setActiveSpec(spec)}
-                style={{
-                  padding: '8px 18px', borderRadius: 100, fontSize: '0.82rem', fontWeight: 600, cursor: 'pointer', border: 'none',
-                  background: activeSpec === spec ? 'var(--accent)' : 'var(--bg-surface)',
-                  color:      activeSpec === spec ? '#000' : 'var(--text-muted)',
-                  border:     activeSpec === spec ? 'none' : '1px solid var(--border)',
-                  transition: 'all 0.15s',
-                } as React.CSSProperties}
-              >
-                {spec}
-              </button>
-            ))}
+            {SPECS.map(spec => {
+              const style: React.CSSProperties = {
+                padding: '8px 18px', borderRadius: 100, fontSize: '0.82rem', fontWeight: 600, cursor: 'pointer',
+                background: activeSpec === spec ? 'var(--accent)' : 'var(--bg-surface)',
+                color:      activeSpec === spec ? '#000' : 'var(--text-muted)',
+                transition: 'all 0.15s',
+              };
+              if (activeSpec === spec) {
+                style.border = 'none';
+              } else {
+                style.border = '1px solid var(--border)';
+              }
+              return (
+                <button
+                  key={spec}
+                  onClick={() => setActiveSpec(spec)}
+                  style={style}
+                >
+                  {spec}
+                </button>
+              );
+            })}
           </div>
 
           {/* Partner grid */}
