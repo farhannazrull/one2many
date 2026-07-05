@@ -1,34 +1,60 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
-import { randomBytes } from 'crypto'
+import { db } from '@/lib/firebase';
+import { collection, query, where, getDocs, writeBatch, addDoc } from 'firebase/firestore';
+import { NextResponse } from 'next/server';
+import { randomBytes } from 'crypto';
 
-export async function POST(req: NextRequest) {
-  const { email, code } = await req.json()
-  if (!email || !code) return NextResponse.json({ error: 'Data tidak lengkap' }, { status: 400 })
+export async function POST(request: Request) {
+  try {
+    const { email, code } = await request.json();
+    if (!email || !code) {
+      return NextResponse.json({ error: 'Email and code are required' }, { status: 400 });
+    }
 
-  const normalized = email.trim().toLowerCase()
+    const otpCol = collection(db, 'otp_codes');
+    const q = query(
+      otpCol,
+      where('email', '==', email),
+      where('code', '==', code),
+      where('used', '==', false),
+      where('expiresAt', '>', new Date())
+    );
 
-  const otp = await prisma.otpCode.findFirst({
-    where: { email: normalized, code, used: false, expiresAt: { gt: new Date() } },
-    orderBy: { createdAt: 'desc' },
-  })
+    const otpSnapshot = await getDocs(q);
 
-  if (!otp) return NextResponse.json({ error: 'Kode salah atau sudah kedaluwarsa' }, { status: 401 })
+    if (otpSnapshot.empty) {
+      return NextResponse.json({ error: 'Invalid or expired OTP' }, { status: 400 });
+    }
 
-  await prisma.otpCode.update({ where: { id: otp.id }, data: { used: true } })
+    const otpDoc = otpSnapshot.docs[0];
 
-  const token = randomBytes(32).toString('hex')
-  const expiresAt = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) // 30 hari
+    // Mark OTP as used
+    const batch = writeBatch(db);
+    batch.update(otpDoc.ref, { used: true });
+    await batch.commit();
 
-  await prisma.customerSession.create({ data: { email: normalized, token, expiresAt } })
+    // Create a session
+    const sessionToken = randomBytes(32).toString('hex');
+    const sessionExpiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
 
-  const res = NextResponse.json({ success: true, email: normalized })
-  res.cookies.set('customer_token', token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
-    maxAge: 60 * 60 * 24 * 30,
-    path: '/',
-  })
-  return res
+    const sessionsCol = collection(db, 'customer_sessions');
+    await addDoc(sessionsCol, {
+      email,
+      token: sessionToken,
+      expiresAt: sessionExpiresAt,
+    });
+
+    const response = NextResponse.json({ message: 'Login successful' });
+    response.cookies.set('customer_token', sessionToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      path: '/',
+      expires: sessionExpiresAt,
+    });
+    
+    return response;
+
+  } catch (error) {
+    console.error('Error verifying OTP:', error);
+    return NextResponse.json({ error: 'Failed to verify OTP' }, { status: 500 });
+  }
 }

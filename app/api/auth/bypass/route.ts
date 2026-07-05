@@ -1,26 +1,41 @@
-import { NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
-import { randomBytes } from 'crypto'
+import { db } from '@/lib/firebase';
+import { collection, addDoc } from 'firebase/firestore';
+import { NextResponse } from 'next/server';
+import { randomBytes } from 'crypto';
 
-// Dev-only bypass — TIDAK berfungsi di production
-export async function POST() {
-  if (process.env.NODE_ENV === 'production') {
-    return NextResponse.json({ error: 'Not found' }, { status: 404 })
+export async function POST(request: Request) {
+  if (process.env.NODE_ENV !== 'development') {
+    return NextResponse.json({ error: 'Not allowed' }, { status: 403 });
   }
 
-  const email = process.env.CONTACT_EMAIL ?? 'dev@one2many.id'
-  const token = randomBytes(32).toString('hex')
-  const expiresAt = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
+  const { email } = await request.json();
+  if (!email) {
+    return NextResponse.json({ error: 'Email is required' }, { status: 400 });
+  }
 
-  await prisma.customerSession.create({ data: { email, token, expiresAt } })
+  try {
+    const sessionToken = randomBytes(32).toString('hex');
+    const sessionExpiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
 
-  const res = NextResponse.json({ success: true, email })
-  res.cookies.set('customer_token', token, {
-    httpOnly: true,
-    secure: false,
-    sameSite: 'lax',
-    maxAge: 60 * 60 * 24 * 30,
-    path: '/',
-  })
-  return res
+    const sessionsCol = collection(db, 'customer_sessions');
+    await addDoc(sessionsCol, {
+      email,
+      token: sessionToken,
+      expiresAt: sessionExpiresAt,
+    });
+
+    const response = NextResponse.json({ message: 'Bypass successful' });
+    response.cookies.set('customer_token', sessionToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      path: '/',
+      expires: sessionExpiresAt,
+    });
+
+    return response;
+
+  } catch (error) {
+    console.error('Error in bypass:', error);
+    return NextResponse.json({ error: 'Bypass failed' }, { status: 500 });
+  }
 }

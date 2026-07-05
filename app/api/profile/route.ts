@@ -1,19 +1,33 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { db } from '@/lib/firebase';
+import { collection, query, where, getDocs } from 'firebase/firestore';
+import { NextResponse, NextRequest } from 'next/server';
 
-export async function GET(req: NextRequest) {
-  const email = req.nextUrl.searchParams.get('email')?.trim().toLowerCase()
-  if (!email) return NextResponse.json({ error: 'Email wajib diisi' }, { status: 400 })
+export async function GET(request: NextRequest) {
+  const token = request.cookies.get('customer_token')?.value;
 
-  const orders = await prisma.order.findMany({
-    where: { email },
-    orderBy: { createdAt: 'desc' },
-    select: {
-      id: true, createdAt: true, service: true, packageType: true,
-      company: true, budget: true, timeline: true, status: true,
-      description: true, name: true, phone: true,
-    },
-  })
+  if (!token) {
+    return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
+  }
 
-  return NextResponse.json({ email, orders })
+  try {
+    const sessionsCol = collection(db, 'customer_sessions');
+    const q = query(
+      sessionsCol,
+      where('token', '==', token),
+      where('expiresAt', '>', new Date())
+    );
+
+    const sessionSnapshot = await getDocs(q);
+
+    if (sessionSnapshot.empty) {
+      return NextResponse.json({ error: 'Invalid or expired session' }, { status: 401 });
+    }
+
+    const session = sessionSnapshot.docs[0].data();
+    return NextResponse.json({ email: session.email });
+
+  } catch (error) {
+    console.error('Error fetching profile:', error);
+    return NextResponse.json({ error: 'Failed to fetch profile' }, { status: 500 });
+  }
 }

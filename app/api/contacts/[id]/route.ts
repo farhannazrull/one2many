@@ -1,21 +1,42 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { db } from '@/lib/firebase';
+import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
+import { NextResponse, NextRequest } from 'next/server';
 
 function isAuthed(req: NextRequest) {
-  return req.cookies.get('admin_token')?.value === process.env.ADMIN_PASSWORD
+  return req.cookies.get('admin_token')?.value === process.env.ADMIN_PASSWORD;
 }
 
-export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  if (!isAuthed(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  const { id } = await params
-  const { status } = await req.json()
-  const contact = await prisma.contact.update({ where: { id }, data: { status } })
-  return NextResponse.json(contact)
+export async function PATCH(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  if (!isAuthed(request)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
+  try {
+    const { id } = params;
+    const body = await request.json();
+    const contactRef = doc(db, 'contacts', id);
+    await updateDoc(contactRef, body);
+    return NextResponse.json({ message: 'Contact updated successfully' });
+  } catch (error) {
+    console.error("Error updating contact: ", error);
+    return NextResponse.json({ error: 'Failed to update contact' }, { status: 500 });
+  }
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  if (!isAuthed(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  const { id } = await params
-  await prisma.contact.delete({ where: { id } })
-  return NextResponse.json({ success: true })
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  if (!isAuthed(request)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
+  try {
+    const { id } = params;
+    const contactRef = doc(db, 'contacts', id);
+    await deleteDoc(contactRef);
+    return NextResponse.json({ message: 'Contact deleted successfully' });
+  } catch (error) {
+    console.error("Error deleting contact: ", error);
+    return NextResponse.json({ error: 'Failed to delete contact' }, { status: 500 });
+  }
 }

@@ -1,25 +1,35 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { db } from '@/lib/firebase';
+import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
+import { NextResponse } from 'next/server';
 
-function isAuthed(req: NextRequest) {
-  const token = req.cookies.get('admin_token')?.value
-  return token === process.env.ADMIN_PASSWORD
+export async function PATCH(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const { id } = params;
+    const body = await request.json();
+    const orderRef = doc(db, 'orders', id);
+    await updateDoc(orderRef, body);
+    return NextResponse.json({ message: 'Order updated successfully' });
+  } catch (error) {
+    console.error("Error updating order: ", error);
+    return NextResponse.json({ error: 'Failed to update order' }, { status: 500 });
+  }
 }
 
-export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  if (!isAuthed(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  const { id } = await params
-  const { status, adminNotes } = await req.json()
-  const order = await prisma.order.update({
-    where: { id },
-    data: { ...(status && { status }), ...(adminNotes !== undefined && { adminNotes }) },
-  })
-  return NextResponse.json(order)
+export async function DELETE(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const { id } = params;
+    const orderRef = doc(db, 'orders', id);
+    await deleteDoc(orderRef);
+    return NextResponse.json({ message: 'Order deleted successfully' });
+  } catch (error) {
+    console.error("Error deleting order: ", error);
+    return NextResponse.json({ error: 'Failed to delete order' }, { status: 500 });
+  }
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  if (!isAuthed(req)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  const { id } = await params
-  await prisma.order.delete({ where: { id } })
-  return NextResponse.json({ success: true })
-}
