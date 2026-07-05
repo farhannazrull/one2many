@@ -1,19 +1,28 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { NextRequest, NextResponse } from 'next/server';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export async function POST(req: NextRequest) {
-  const { name, email, service, message } = await req.json()
+  const { name, email, service, message } = await req.json();
 
   if (!name?.trim() || !email?.trim() || !message?.trim()) {
-    return NextResponse.json({ error: 'Field tidak lengkap' }, { status: 400 })
+    return NextResponse.json({ error: 'Field tidak lengkap' }, { status: 400 });
   }
 
-  await prisma.contact.create({ data: { name, email, service, message } })
+  try {
+    const contactsCol = collection(db, 'contacts');
+    await addDoc(contactsCol, {
+      name,
+      email,
+      service,
+      message,
+      createdAt: serverTimestamp(),
+      status: 'unread',
+    });
 
-  if (process.env.RESEND_API_KEY) {
-    try {
-      const { Resend } = await import('resend')
-      const resend = new Resend(process.env.RESEND_API_KEY)
+    if (process.env.RESEND_API_KEY) {
+      const { Resend } = await import('resend');
+      const resend = new Resend(process.env.RESEND_API_KEY);
       await resend.emails.send({
         from: 'one2many Website <onboarding@resend.dev>',
         to: process.env.CONTACT_EMAIL ?? 'hello@one2many.id',
@@ -33,11 +42,12 @@ export async function POST(req: NextRequest) {
             </div>
           </div>
         `,
-      })
-    } catch (err) {
-      console.error('[contact] email error:', err)
+      });
     }
-  }
 
-  return NextResponse.json({ success: true })
+    return NextResponse.json({ success: true });
+  } catch (err) {
+    console.error('[contact] firestore or email error:', err);
+    return NextResponse.json({ error: 'Failed to submit contact form.' }, { status: 500 });
+  }
 }

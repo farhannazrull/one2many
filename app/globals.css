@@ -1,22 +1,15 @@
 @import "tailwindcss";
 
 /* ===== DESIGN TOKENS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 :root {
-  --bg: #080808;
-  --bg-surface: #101010;
-  --bg-elevated: #181818;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.15);
-  --text: #f4f4f4;
-  --text-muted: rgba(244, 244, 244, 0.55);
-  --accent: #C2FF00;
-  --accent-dim: rgba(194, 255, 0, 0.1);
-  --accent-glow: 0 0 32px rgba(194, 255, 0, 0.22);
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --max-width: 1100px;
   --r-sm: 8px;
-  --r-lg: 20px;
-  --r-xl: 28px;
-  --nav-bg: rgba(8, 8, 8, 0.82);
-  --nav-bg-scrolled: rgba(8, 8, 8, 0.97);
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 20px;
 }
 
 [data-theme="light"] {

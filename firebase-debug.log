@@ -1,0 +1,804 @@
+[debug] [2026-07-05T01:47:40.367Z] ----------------------------------------------------------------------
+[debug] [2026-07-05T01:47:40.372Z] Command:       /usr/local/bin/node /Users/macbook/Downloads/one2many-web/node_modules/.pnpm/firebase-tools@15.22.4_@types+node@20.19.41/node_modules/firebase-tools/lib/bin/firebase.js deploy --only hosting
+[debug] [2026-07-05T01:47:40.373Z] CLI Version:   15.22.4
+[debug] [2026-07-05T01:47:40.373Z] Platform:      darwin
+[debug] [2026-07-05T01:47:40.374Z] Node Version:  v24.11.1
+[debug] [2026-07-05T01:47:40.374Z] Detected Agent: unknown
+[debug] [2026-07-05T01:47:40.374Z] Time:          Sun Jul 05 2026 08:47:40 GMT+0700 (Western Indonesia Time)
+[debug] [2026-07-05T01:47:40.374Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-05T01:47:40.378Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2026-07-05T01:47:50.936Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-05T01:47:50.943Z] > authorizing via signed-in user (farhanilhamni@gmail.com)
+[debug] [2026-07-05T01:47:50.943Z] [iam] checking project one2many-4dd62 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-07-05T01:47:50.945Z] Checked if tokens are valid: false, expires at: 1782744091234
+[debug] [2026-07-05T01:47:50.945Z] Checked if tokens are valid: false, expires at: 1782744091234
+[debug] [2026-07-05T01:47:50.945Z] > refreshing access token with scopes: []
+[debug] [2026-07-05T01:47:50.967Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-07-05T01:47:50.967Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-07-05T01:47:51.380Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-07-05T01:47:51.380Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-07-05T01:47:51.465Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions [none]
+[debug] [2026-07-05T01:47:51.466Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions  x-goog-user-project=one2many-4dd62
+[debug] [2026-07-05T01:47:51.466Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-05T01:47:51.663Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2026-07-05T01:47:51.663Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2026-07-05T01:47:52.229Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions 200
+[debug] [2026-07-05T01:47:52.229Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-05T01:47:52.230Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T01:47:52.230Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T01:47:52.230Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/one2many-4dd62 [none]
+[debug] [2026-07-05T01:47:53.190Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/one2many-4dd62 200
+[debug] [2026-07-05T01:47:53.191Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/one2many-4dd62 {"projectId":"one2many-4dd62","projectNumber":"49240633207","displayName":"one2many","name":"projects/one2many-4dd62","resources":{"hostingSite":"one2many-4dd62"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_cdd60cbb-b397-4e8b-82d3-635597fbc216"}
+[debug] [2026-07-05T01:48:17.614Z] ----------------------------------------------------------------------
+[debug] [2026-07-05T01:48:17.617Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only hosting
+[debug] [2026-07-05T01:48:17.617Z] CLI Version:   15.4.0
+[debug] [2026-07-05T01:48:17.617Z] Platform:      darwin
+[debug] [2026-07-05T01:48:17.617Z] Node Version:  v24.11.1
+[debug] [2026-07-05T01:48:17.617Z] Time:          Sun Jul 05 2026 08:48:17 GMT+0700 (Western Indonesia Time)
+[debug] [2026-07-05T01:48:17.617Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-05T01:48:22.530Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-05T01:48:22.531Z] > authorizing via signed-in user (farhanilhamni@gmail.com)
+[debug] [2026-07-05T01:48:22.531Z] [iam] checking project one2many-4dd62 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-07-05T01:48:22.532Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T01:48:22.532Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T01:48:22.533Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions [none]
+[debug] [2026-07-05T01:48:22.533Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions x-goog-quota-user=projects/one2many-4dd62
+[debug] [2026-07-05T01:48:22.534Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-05T01:48:23.907Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions 200
+[debug] [2026-07-05T01:48:23.907Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-05T01:48:23.908Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T01:48:23.908Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T01:48:23.908Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/one2many-4dd62 [none]
+[debug] [2026-07-05T01:48:24.863Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/one2many-4dd62 200
+[debug] [2026-07-05T01:48:24.863Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/one2many-4dd62 {"projectId":"one2many-4dd62","projectNumber":"49240633207","displayName":"one2many","name":"projects/one2many-4dd62","resources":{"hostingSite":"one2many-4dd62"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_cdd60cbb-b397-4e8b-82d3-635597fbc216"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 16.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2026-07-05T01:48:47.809Z] ----------------------------------------------------------------------
+[debug] [2026-07-05T01:48:47.815Z] Command:       /usr/local/bin/node /Users/macbook/Downloads/one2many-web/node_modules/.pnpm/firebase-tools@15.22.4_@types+node@20.19.41/node_modules/firebase-tools/lib/bin/firebase.js deploy --only hosting
+[debug] [2026-07-05T01:48:47.815Z] CLI Version:   15.22.4
+[debug] [2026-07-05T01:48:47.816Z] Platform:      darwin
+[debug] [2026-07-05T01:48:47.816Z] Node Version:  v24.11.1
+[debug] [2026-07-05T01:48:47.816Z] Detected Agent: gemini_cli
+[debug] [2026-07-05T01:48:47.816Z] Time:          Sun Jul 05 2026 08:48:47 GMT+0700 (Western Indonesia Time)
+[debug] [2026-07-05T01:48:47.817Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-05T01:48:51.835Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-05T01:48:51.836Z] > authorizing via signed-in user (farhanilhamni@gmail.com)
+[debug] [2026-07-05T01:48:51.836Z] [iam] checking project one2many-4dd62 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-07-05T01:48:51.837Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T01:48:51.837Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T01:48:51.839Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions [none]
+[debug] [2026-07-05T01:48:51.839Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions  x-goog-user-project=one2many-4dd62
+[debug] [2026-07-05T01:48:51.840Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-05T01:48:53.228Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions 200
+[debug] [2026-07-05T01:48:53.228Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-05T01:48:53.228Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T01:48:53.228Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T01:48:53.229Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/one2many-4dd62 [none]
+[debug] [2026-07-05T01:48:53.993Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/one2many-4dd62 200
+[debug] [2026-07-05T01:48:58.820Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T01:48:58.821Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T01:48:58.821Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites/one2many-4dd62 [none]
+[debug] [2026-07-05T01:48:59.999Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites/one2many-4dd62 200
+[debug] [2026-07-05T01:48:59.999Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites/one2many-4dd62 {"name":"projects/one2many-4dd62/sites/one2many-4dd62","defaultUrl":"https://one2many-4dd62.web.app","type":"DEFAULT_SITE"}
+[info] ▲ Next.js 16.2.6 (Turbopack)
+
+[info] - Environments: .env.local
+
+[info] 
+
+[info]   Creating an optimized production build ...
+
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 15.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2026-07-05T01:48:53.993Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/one2many-4dd62 {"projectId":"one2many-4dd62","projectNumber":"49240633207","displayName":"one2many","name":"projects/one2many-4dd62","resources":{"hostingSite":"one2many-4dd62"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_cdd60cbb-b397-4e8b-82d3-635597fbc216"}
+[info] 
+
+[info] > Build error occurred
+
+[info] Error: Turbopack build failed with 13 errors:
+./app/api/orders/route.ts:4:10
+the name `NextResponse` is defined multiple times
+  2 | import { db } from '@/lib/firebase';
+  3 | import { collection, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
+> 4 | import { NextResponse } from 'next/server';
+    |          ^^^^^^^^^^^^
+  5 |
+  6 | export async function GET() {
+  7 |   try {
+
+Ecmascript file had an error
+
+
+./app/api/contact/route.ts:2:1
+Module not found: Can't resolve '@/lib/prisma'
+  1 | import { NextRequest, NextResponse } from 'next/server'
+> 2 | import { prisma } from '@/lib/prisma'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | export async function POST(req: NextRequest) {
+  5 |   const { name, email, service, message } = await req.json()
+
+Import map: aliased to relative './lib/prisma' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./lib/firebase.ts:1:1
+Module not found: Can't resolve 'firebase/app'
+> 1 | import { initializeApp, getApps } from 'firebase/app';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { getFirestore } from 'firebase/firestore';
+  3 |
+  4 | const firebaseConfig = {
+
+
+
+Import trace:
+  App Route:
+    ./lib/firebase.ts
+    ./app/api/profile/route.ts
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/auth/bypass/route.ts:2:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { db } from '@/lib/firebase';
+> 2 | import { collection, addDoc } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { NextResponse } from 'next/server';
+  4 | import { randomBytes } from 'crypto';
+  5 |
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/auth/logout/route.ts:2:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { db } from '@/lib/firebase';
+> 2 | import { collection, query, where, getDocs, deleteDoc } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { NextResponse, NextRequest } from 'next/server';
+  4 |
+  5 | export async function POST(request: NextRequest) {
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/auth/otp/send/route.ts:3:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { NextRequest, NextResponse } from 'next/server';
+  2 | import { db } from '@/lib/firebase';
+> 3 | import { collection, addDoc, getDocs, query, where, writeBatch } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | function generateOtp() {
+  6 |   return String(Math.floor(100000 + Math.random() * 900000));
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/auth/otp/verify/route.ts:2:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { db } from '@/lib/firebase';
+> 2 | import { collection, query, where, getDocs, writeBatch, addDoc } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { NextResponse } from 'next/server';
+  4 | import { randomBytes } from 'crypto';
+  5 |
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/contacts/[id]/route.ts:2:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { db } from '@/lib/firebase';
+> 2 | import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { NextResponse, NextRequest } from 'next/server';
+  4 |
+  5 | function isAuthed(req: NextRequest) {
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/contacts/route.ts:3:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | ...t { NextRequest, NextResponse } from 'next/server';
+  2 | ...t { db } from '@/lib/firebase';
+> 3 | ...t { collection, getDocs, addDoc, serverTimestamp, orderBy, query } from 'firebase/firest...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | ...
+  5 | ...ion isAuthed(req: NextRequest) {
+  6 | ...urn req.cookies.get('admin_token')?.value === process.env.ADMIN_PASSWORD;
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/orders/[id]/route.ts:2:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { db } from '@/lib/firebase';
+> 2 | import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { NextResponse } from 'next/server';
+  4 |
+  5 | export async function PATCH(
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/orders/route.ts:3:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { NextRequest, NextResponse } from 'next/server'
+  2 | import { db } from '@/lib/firebase';
+> 3 | import { collection, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { NextResponse } from 'next/server';
+  5 |
+  6 | export async function GET() {
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/profile/route.ts:2:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { db } from '@/lib/firebase';
+> 2 | import { collection, query, where, getDocs } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { NextResponse, NextRequest } from 'next/server';
+  4 |
+  5 | export async function GET(request: NextRequest) {
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./lib/firebase.ts:2:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { initializeApp, getApps } from 'firebase/app';
+> 2 | import { getFirestore } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | const firebaseConfig = {
+  5 |   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+
+
+
+Import trace:
+  App Route:
+    ./lib/firebase.ts
+    ./app/api/profile/route.ts
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> (./app/api/orders/route.ts:4:10)
+    at <unknown> (./app/api/contact/route.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./lib/firebase.ts:1:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/auth/bypass/route.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/auth/logout/route.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/auth/otp/send/route.ts:3:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/auth/otp/verify/route.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/contacts/[id]/route.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/contacts/route.ts:3:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/orders/[id]/route.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/orders/route.ts:3:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/profile/route.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./lib/firebase.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+
+[debug] [2026-07-05T01:49:33.338Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T01:49:33.338Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T01:49:33.339Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites/one2many-4dd62 [none]
+[debug] [2026-07-05T01:49:34.417Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites/one2many-4dd62 200
+[debug] [2026-07-05T01:49:34.417Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites/one2many-4dd62 {"name":"projects/one2many-4dd62/sites/one2many-4dd62","defaultUrl":"https://one2many-4dd62.web.app","type":"DEFAULT_SITE"}
+[info] ▲ Next.js 16.2.6 (Turbopack)
+
+[info] - Environments: .env.local
+
+[info] 
+
+[info]   Creating an optimized production build ...
+
+[debug] [2026-07-05T01:49:38.342Z] Error: ENOENT: no such file or directory, open '/Users/macbook/Downloads/one2many-web/.next/server/middleware-manifest.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 16.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2026-07-05T01:50:05.299Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T01:50:05.300Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T01:50:05.303Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites/one2many-4dd62 [none]
+[debug] [2026-07-05T01:50:06.381Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites/one2many-4dd62 200
+[debug] [2026-07-05T01:50:06.381Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites/one2many-4dd62 {"name":"projects/one2many-4dd62/sites/one2many-4dd62","defaultUrl":"https://one2many-4dd62.web.app","type":"DEFAULT_SITE"}
+[info] ▲ Next.js 16.2.6 (Turbopack)
+
+[info] - Environments: .env.local
+
+[info] 
+
+[info]   Creating an optimized production build ...
+
+[info] 
+
+[info] > Build error occurred
+
+[info] Error: Turbopack build failed with 13 errors:
+./app/api/orders/route.ts:4:10
+the name `NextResponse` is defined multiple times
+  2 | import { db } from '@/lib/firebase';
+  3 | import { collection, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
+> 4 | import { NextResponse } from 'next/server';
+    |          ^^^^^^^^^^^^
+  5 |
+  6 | export async function GET() {
+  7 |   try {
+
+Ecmascript file had an error
+
+
+./app/api/contact/route.ts:2:1
+Module not found: Can't resolve '@/lib/prisma'
+  1 | import { NextRequest, NextResponse } from 'next/server'
+> 2 | import { prisma } from '@/lib/prisma'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | export async function POST(req: NextRequest) {
+  5 |   const { name, email, service, message } = await req.json()
+
+Import map: aliased to relative './lib/prisma' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./lib/firebase.ts:1:1
+Module not found: Can't resolve 'firebase/app'
+> 1 | import { initializeApp, getApps } from 'firebase/app';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 | import { getFirestore } from 'firebase/firestore';
+  3 |
+  4 | const firebaseConfig = {
+
+
+
+Import trace:
+  App Route:
+    ./lib/firebase.ts
+    ./app/api/profile/route.ts
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/auth/bypass/route.ts:2:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { db } from '@/lib/firebase';
+> 2 | import { collection, addDoc } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { NextResponse } from 'next/server';
+  4 | import { randomBytes } from 'crypto';
+  5 |
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/auth/logout/route.ts:2:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { db } from '@/lib/firebase';
+> 2 | import { collection, query, where, getDocs, deleteDoc } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { NextResponse, NextRequest } from 'next/server';
+  4 |
+  5 | export async function POST(request: NextRequest) {
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/auth/otp/send/route.ts:3:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { NextRequest, NextResponse } from 'next/server';
+  2 | import { db } from '@/lib/firebase';
+> 3 | import { collection, addDoc, getDocs, query, where, writeBatch } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | function generateOtp() {
+  6 |   return String(Math.floor(100000 + Math.random() * 900000));
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/auth/otp/verify/route.ts:2:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { db } from '@/lib/firebase';
+> 2 | import { collection, query, where, getDocs, writeBatch, addDoc } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { NextResponse } from 'next/server';
+  4 | import { randomBytes } from 'crypto';
+  5 |
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/contacts/[id]/route.ts:2:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { db } from '@/lib/firebase';
+> 2 | import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { NextResponse, NextRequest } from 'next/server';
+  4 |
+  5 | function isAuthed(req: NextRequest) {
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/contacts/route.ts:3:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | ...t { NextRequest, NextResponse } from 'next/server';
+  2 | ...t { db } from '@/lib/firebase';
+> 3 | ...t { collection, getDocs, addDoc, serverTimestamp, orderBy, query } from 'firebase/firest...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | ...
+  5 | ...ion isAuthed(req: NextRequest) {
+  6 | ...urn req.cookies.get('admin_token')?.value === process.env.ADMIN_PASSWORD;
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/orders/[id]/route.ts:2:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { db } from '@/lib/firebase';
+> 2 | import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { NextResponse } from 'next/server';
+  4 |
+  5 | export async function PATCH(
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/orders/route.ts:3:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { NextRequest, NextResponse } from 'next/server'
+  2 | import { db } from '@/lib/firebase';
+> 3 | import { collection, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { NextResponse } from 'next/server';
+  5 |
+  6 | export async function GET() {
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./app/api/profile/route.ts:2:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { db } from '@/lib/firebase';
+> 2 | import { collection, query, where, getDocs } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import { NextResponse, NextRequest } from 'next/server';
+  4 |
+  5 | export async function GET(request: NextRequest) {
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./lib/firebase.ts:2:1
+Module not found: Can't resolve 'firebase/firestore'
+  1 | import { initializeApp, getApps } from 'firebase/app';
+> 2 | import { getFirestore } from 'firebase/firestore';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 |
+  4 | const firebaseConfig = {
+  5 |   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+
+
+
+Import trace:
+  App Route:
+    ./lib/firebase.ts
+    ./app/api/profile/route.ts
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> (./app/api/orders/route.ts:4:10)
+    at <unknown> (./app/api/contact/route.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./lib/firebase.ts:1:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/auth/bypass/route.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/auth/logout/route.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/auth/otp/send/route.ts:3:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/auth/otp/verify/route.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/contacts/[id]/route.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/contacts/route.ts:3:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/orders/[id]/route.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/orders/route.ts:3:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./app/api/profile/route.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./lib/firebase.ts:2:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+
+[debug] [2026-07-05T01:50:35.177Z] Error: ENOENT: no such file or directory, open '/Users/macbook/Downloads/one2many-web/.next/server/middleware-manifest.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2026-07-05T02:14:32.595Z] ----------------------------------------------------------------------
+[debug] [2026-07-05T02:14:32.634Z] Command:       /usr/local/bin/node /Users/macbook/Downloads/one2many-web/node_modules/.pnpm/firebase-tools@15.22.4_@types+node@20.19.41/node_modules/firebase-tools/lib/bin/firebase.js deploy --only hosting
+[debug] [2026-07-05T02:14:32.634Z] CLI Version:   15.22.4
+[debug] [2026-07-05T02:14:32.634Z] Platform:      darwin
+[debug] [2026-07-05T02:14:32.635Z] Node Version:  v24.11.1
+[debug] [2026-07-05T02:14:32.635Z] Detected Agent: gemini_cli
+[debug] [2026-07-05T02:14:32.635Z] Time:          Sun Jul 05 2026 09:14:32 GMT+0700 (Western Indonesia Time)
+[debug] [2026-07-05T02:14:32.635Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-05T02:14:36.363Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-05T02:14:36.363Z] > authorizing via signed-in user (farhanilhamni@gmail.com)
+[debug] [2026-07-05T02:14:36.365Z] [iam] checking project one2many-4dd62 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-07-05T02:14:36.367Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T02:14:36.367Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T02:14:36.368Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions [none]
+[debug] [2026-07-05T02:14:36.368Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions  x-goog-user-project=one2many-4dd62
+[debug] [2026-07-05T02:14:36.368Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-05T02:14:37.939Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions 200
+[debug] [2026-07-05T02:14:37.940Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/one2many-4dd62:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-05T02:14:37.940Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T02:14:37.940Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T02:14:37.940Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/one2many-4dd62 [none]
+[debug] [2026-07-05T02:14:39.182Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/one2many-4dd62 200
+[debug] [2026-07-05T02:14:39.183Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/one2many-4dd62 {"projectId":"one2many-4dd62","projectNumber":"49240633207","displayName":"one2many","name":"projects/one2many-4dd62","resources":{"hostingSite":"one2many-4dd62"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_cdd60cbb-b397-4e8b-82d3-635597fbc216"}
+[debug] [2026-07-05T02:14:52.717Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T02:14:52.718Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T02:14:52.718Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites pageToken=&pageSize=10
+[debug] [2026-07-05T02:14:54.290Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites 200
+[debug] [2026-07-05T02:14:54.290Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites {"sites":[{"name":"projects/one2many-4dd62/sites/one2many-4dd62","defaultUrl":"https://one2many-4dd62.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2026-07-05T02:14:54.291Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T02:14:54.291Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T02:14:54.291Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites 
+[debug] [2026-07-05T02:14:55.162Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites 200
+[debug] [2026-07-05T02:14:55.162Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites {"sites":[{"name":"projects/one2many-4dd62/sites/one2many-4dd62","defaultUrl":"https://one2many-4dd62.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2026-07-05T02:14:55.162Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T02:14:55.163Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T02:14:55.163Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/one2many-4dd62/webApps/-/config [none]
+[debug] [2026-07-05T02:14:56.664Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/one2many-4dd62/webApps/-/config 200
+[debug] [2026-07-05T02:14:56.664Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/one2many-4dd62/webApps/-/config {"projectId":"one2many-4dd62","appId":"1:49240633207:web:0325599a102c1734d1bb72","storageBucket":"one2many-4dd62.firebasestorage.app","apiKey":"AIzaSyClv6OB3j-W9-sMHV-H3lXgT9ugNYLEmqo","authDomain":"one2many-4dd62.firebaseapp.com","messagingSenderId":"49240633207","measurementId":"G-TDCLKWSPYM","projectNumber":"49240633207","version":"2"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 16.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2026-07-05T02:15:23.604Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T02:15:23.604Z] Checked if tokens are valid: true, expires at: 1783219670380
+[debug] [2026-07-05T02:15:23.604Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites/one2many-4dd62 [none]
+[debug] [2026-07-05T02:15:24.725Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites/one2many-4dd62 200
+[debug] [2026-07-05T02:15:24.726Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/one2many-4dd62/sites/one2many-4dd62 {"name":"projects/one2many-4dd62/sites/one2many-4dd62","defaultUrl":"https://one2many-4dd62.web.app","type":"DEFAULT_SITE"}
+[info] ▲ Next.js 16.2.6 (Turbopack)
+
+[info] - Environments: .env.local
+
+
+[info]   Creating an optimized production build ...
+
+[info] Turbopack build encountered 1 warnings:
+[next]/internal/font/google/fba5a26ea33df6a3-s.p.woff2
+Error while requesting resource
+There was an issue requesting https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yygg_vb.woff2
+
+
+
+[info] 
+> Build error occurred
+
+[info] Error: Turbopack build failed with 5 errors:
+[next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.module.css:34:8
+Module not found: Can't resolve '@vercel/turbopack-next/internal/font/google/font'
+  32 |   font-weight: 400;
+  33 |   font-display: swap;
+> 34 |   src: url(@vercel/turbopack-next/internal/font/google/font?{%22url%22:%22https://fonts.gs...
+     |        ^
+  35 |   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+...
+  36 | }
+  37 | /* cyrillic-ext */
+
+Import map: Resolved by import map
+
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.module.css
+    [next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.js
+    ./app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.module.css:70:8
+Module not found: Can't resolve '@vercel/turbopack-next/internal/font/google/font'
+  68 |   font-weight: 500;
+  69 |   font-display: swap;
+> 70 |   src: url(@vercel/turbopack-next/internal/font/google/font?{%22url%22:%22https://fonts.gs...
+     |        ^
+  71 |   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+...
+  72 | }
+  73 | /* cyrillic-ext */
+
+Import map: Resolved by import map
+
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.module.css
+    [next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.js
+    ./app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.module.css:106:8
+Module not found: Can't resolve '@vercel/turbopack-next/internal/font/google/font'
+  104 |   font-weight: 600;
+  105 |   font-display: swap;
+> 106 |   src: url(@vercel/turbopack-next/internal/font/google/font?{%22url%22:%22https://fonts.g...
+      |        ^
+  107 |   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U...
+  108 | }
+  109 | /* cyrillic-ext */
+
+Import map: Resolved by import map
+
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.module.css
+    [next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.js
+    ./app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.module.css:142:8
+Module not found: Can't resolve '@vercel/turbopack-next/internal/font/google/font'
+  140 |   font-weight: 700;
+  141 |   font-display: swap;
+> 142 |   src: url(@vercel/turbopack-next/internal/font/google/font?{%22url%22:%22https://fonts.g...
+      |        ^
+  143 |   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U...
+  144 | }
+  145 | /* cyrillic-ext */
+
+Import map: Resolved by import map
+
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.module.css
+    [next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.js
+    ./app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.module.css:178:8
+Module not found: Can't resolve '@vercel/turbopack-next/internal/font/google/font'
+  176 |   font-weight: 800;
+  177 |   font-display: swap;
+> 178 |   src: url(@vercel/turbopack-next/internal/font/google/font?{%22url%22:%22https://fonts.g...
+      |        ^
+  179 |   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U...
+  180 | }
+  181 | @font-face {
+
+Import map: Resolved by import map
+
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.module.css
+    [next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.js
+    ./app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> ([next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.module.css:34:8)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> ([next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.module.css:70:8)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> ([next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.module.css:106:8)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> ([next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.module.css:142:8)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> ([next]/internal/font/google/plus_jakarta_sans_c9f6c3b0.module.css:178:8)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+
+[debug] [2026-07-05T02:16:33.837Z] Error: ENOENT: no such file or directory, open '/Users/macbook/Downloads/one2many-web/.next/server/middleware-manifest.json'
+[error] 
+[error] Error: An unexpected error has occurred.
